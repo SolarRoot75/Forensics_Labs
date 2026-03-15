@@ -39,11 +39,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     testdisk \
     xxd \
     hashdeep \
-    bulk-extractor \
-    ewf-tools \
-    afflib-tools \
-    libbde-utils \
-    libvshadow-utils \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
@@ -58,9 +53,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     pngcheck \
     zbar-tools \
     yara \
-    radare2 \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
+
+# INSTALLATION DE RADARE2 (Depuis les sources)
+WORKDIR /opt
+RUN git clone https://github.com/radareorg/radare2 \
+    && cd radare2 \
+    && sys/install.sh
 
 # ==============================================================================
 # 4. ANALYSE RÉSEAU (PCAP)

@@ -18,9 +18,6 @@ Les outils sont divisés en plusieurs couches pour optimiser le temps de build e
 * **The Sleuth Kit (TSK)** : Suite d'outils pour l'investigation de systèmes de fichiers (NTFS, FAT, ext, etc..).
 * **TestDisk** : Récupération de données et réparation de partitions.
 * **xxd** / **hashdeep** : Hexdump, création et vérification de hash d'intégrité (MD5, SHA, etc..).
-* **bulk_extractor** : Extraction d'informations sensibles (emails, cartes de crédit, URL) depuis une image brute.
-* **ewf-tools** / **afflib-tools** : Support des formats spécialisés EnCase (E01) et AFF.
-* **libbde-utils** / **libvshadow-utils** : Montage de partitions Windows protégées (BitLocker) et des clichés instantanés (VSS).
 
 ### 2. 📂 Extraction, Stéganographie & Analyse de Fichiers
 * **binwalk** / **foremost** : Rétro-ingénierie granulaire et *file carving* (extraction de fichiers dissimulés).

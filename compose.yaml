@@ -8,8 +8,8 @@ services:
 
     # Isolation réseau totale pour éviter toute communication d'un malware potentiel (network_mode: none).
     # Si vous analysez des sources saines (CTF, etc..) et avez besoin d'internet, décommentez 'network_mode: host' et commentez 'none'.
-    network_mode: none
-    # network_mode: host
+    # network_mode: none
+    network_mode: host
 
     # Maintient le conteneur actif pour s'y attacher en shell interactif
     stdin_open: true
@@ -20,6 +20,21 @@ services:
 
     # Ajout de capacité noyau spécifique
     cap_add:
+      # Requis pour écouter et capturer du trafic réseau (tshark, tcpdump, ngrep)
+      - NET_RAW
+      - NET_ADMIN
       # Requis pour monter des images disques brutes (ex: mount -o loop image.dd /mnt) 
       # directement depuis l'intérieur du conteneur.
       - SYS_ADMIN
+      - MKNOD
+    # ==============================================================================
+    # ⚠️ OPTIONNEL : MONTAGE D'IMAGES DISQUES (RAW/DD)
+    # ==============================================================================
+    # Si vous devez absolument utiliser "mount -o loop" sur une image RAW,
+    # décommentez les lignes ci-dessous pour lier vos loop devices hôtes.
+    # /!\ Sur les OS immuables ou si aucun loop n'est actif, cela fait planter le lancement.
+    #devices:
+    #  - /dev/loop-control:/dev/loop-control
+    #  - /dev/loop0:/dev/loop0
+    #  - /dev/loop1:/dev/loop1
+    #  - /dev/loop2:/dev/loop2
