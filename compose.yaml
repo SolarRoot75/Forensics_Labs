@@ -8,8 +8,8 @@ services:
 
     # Isolation réseau totale pour éviter toute communication d'un malware potentiel (network_mode: none).
     # Si vous analysez des sources saines (CTF, etc..) et avez besoin d'internet, décommentez 'network_mode: host' et commentez 'none'.
-    # network_mode: none
-    network_mode: host
+    network_mode: none
+    # network_mode: host
 
     # Maintient le conteneur actif pour s'y attacher en shell interactif
     stdin_open: true
